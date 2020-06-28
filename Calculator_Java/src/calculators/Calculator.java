@@ -295,7 +295,38 @@ public class Calculator {
 		JButton btnequal = new JButton("=");
 		btnequal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				String answer;
+				secondNum = Double.parseDouble(textField.getText());
+				
+				if(operations == "+") {
+					result = firstNum + secondNum;
+					answer = String.format("%.2f", result);
+					textField.setText(answer);
+				}
+				
+				else if(operations == "-") {
+					result = firstNum - secondNum;
+					answer = String.format("%.2f", result);
+					textField.setText(answer);
+				}
+				
+				else if(operations == "*") {
+					result = firstNum * secondNum;
+					answer = String.format("%.2f", result);
+					textField.setText(answer);
+				}
+				
+				else if(operations == "/") {
+					result = firstNum / secondNum;
+					answer = String.format("%.2f", result);
+					textField.setText(answer);
+				}
+				
+				else if(operations == "%") {
+					result = firstNum % secondNum;
+					answer = String.format("%.2f", result);
+					textField.setText(answer);
+				}
 			}
 		});
 		btnequal.setFont(new Font("Tahoma", Font.BOLD, 20));
