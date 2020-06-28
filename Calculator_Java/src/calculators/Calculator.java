@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Calculator {
 
@@ -40,7 +42,7 @@ public class Calculator {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 256, 392);
+		frame.setBounds(100, 100, 265, 392);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -52,9 +54,13 @@ public class Calculator {
 		
 		// -------------------Row1-------------------------
 		
-		JButton btnback = new JButton("<-");
+		JButton btnback = new JButton("©");
+		btnback.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnback.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnback.setBounds(10, 54, 50, 50);
+		btnback.setBounds(10, 54, 56, 50);
 		frame.getContentPane().add(btnback);
 		
 		JButton btnclear = new JButton("C");
@@ -62,18 +68,25 @@ public class Calculator {
 		btnclear.setBounds(66, 54, 50, 50);
 		frame.getContentPane().add(btnclear);
 		
-		JButton btn9 = new JButton("9");
-		btn9.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btn9.setBounds(122, 54, 50, 50);
-		frame.getContentPane().add(btn9);
+		JButton btnpercent = new JButton("%");
+		btnpercent.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnpercent.setBounds(122, 54, 56, 50);
+		frame.getContentPane().add(btnpercent);
 		
 		JButton btnplus = new JButton("+");
 		btnplus.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnplus.setBounds(178, 54, 50, 50);
+		btnplus.setBounds(188, 54, 50, 50);
 		frame.getContentPane().add(btnplus);
 		
-		// -------------------Row1-------------------------
+		// -------------------Row2-------------------------
 		JButton btn7 = new JButton("7");
+		btn7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				String enterNumber = textField.getText() + btn7.getText();
+				textField.setText(enterNumber);
+			}
+		});
 		btn7.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btn7.setBounds(10, 106, 50, 50);
 		frame.getContentPane().add(btn7);
@@ -88,8 +101,12 @@ public class Calculator {
 		btn9.setBounds(122, 106, 50, 50);
 		frame.getContentPane().add(btn9);
 		
+		JButton btnminus = new JButton("-");
+		btnminus.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnminus.setBounds(188, 106, 50, 50);
+		frame.getContentPane().add(btnminus);
 		
-		// -------------------Row2-------------------------
+		// -------------------Row3-------------------------
 		JButton btn4 = new JButton("4");
 		btn4.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btn4.setBounds(10, 167, 50, 50);
@@ -105,12 +122,12 @@ public class Calculator {
 		btn6.setBounds(122, 167, 50, 50);
 		frame.getContentPane().add(btn6);
 		
-		JButton btnminus = new JButton("-");
-		btnminus.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnminus.setBounds(178, 110, 50, 50);
-		frame.getContentPane().add(btnminus);
+		JButton btnmultiply = new JButton("*");
+		btnmultiply.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnmultiply.setBounds(188, 167, 50, 50);
+		frame.getContentPane().add(btnmultiply);
 		
-		// -------------------Row3-------------------------
+		// -------------------Row4-------------------------
 		JButton btn1 = new JButton("1");
 		btn1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btn1.setBounds(10, 228, 50, 50);
@@ -126,10 +143,10 @@ public class Calculator {
 		btn3.setBounds(122, 228, 50, 50);
 		frame.getContentPane().add(btn3);
 		
-		JButton btnmultiply = new JButton("*");
-		btnmultiply.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnmultiply.setBounds(178, 166, 50, 50);
-		frame.getContentPane().add(btnmultiply);
+		JButton btndivide = new JButton("/");
+		btndivide.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btndivide.setBounds(188, 228, 50, 50);
+		frame.getContentPane().add(btndivide);
 		
 		// -------------------Row4-------------------------
 		JButton btn0 = new JButton("0");
